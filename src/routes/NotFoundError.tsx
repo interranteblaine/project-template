@@ -1,22 +1,19 @@
-import React from "react";
-import { useRouteError } from "react-router-dom";
-import Layout from "../common/layout/Layout";
+import React, { useEffect } from "react";
 import { Box } from "@cloudscape-design/components";
+import { useLayoutAPI } from "../common/context/LayoutAPI";
 
 const NotFoundError = () => {
-  const error = useRouteError();
-  console.error(error);
+  const {hideNavigation} = useLayoutAPI()
 
+  useEffect(() => {
+    hideNavigation(true)
+  }, [])
+  
   return (
-    <Layout
-      navigationHide={true}
-      content={
         <Box textAlign="center">
           <Box variant="h1">Oops!</Box>
           <Box variant="p">Sorry, an unexpected error has occurred.</Box>
         </Box>
-      }
-    />
   );
 };
 

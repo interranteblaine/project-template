@@ -1,16 +1,19 @@
-import React from "react";
-import Layout from "../../common/layout/Layout";
-import Nav from "./Nav";
+import React, { useEffect } from "react";
+import { useLayoutAPI } from "../../common/context/LayoutAPI";
 import FormContent from "./FormContent";
+import HomeSideNav from "./HomeSideNav";
 
 const Home = () => {
+  const {setContentType, setNavigation } = useLayoutAPI()
+
+  useEffect(() => {
+    setContentType("form")
+    setNavigation(<HomeSideNav />)
+  }, [])
+
   return (
-    <Layout
-      contentType={"form"}
-      content={<FormContent />}
-      navigation={<Nav />}
-    />
-  );
+    <FormContent />
+  )
 };
 
 export default Home;

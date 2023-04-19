@@ -58,9 +58,9 @@ const validation: Validations<FormValues> = {
   ],
   thirdField: [
     {
-        isValid: (v) => /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(v),
-        message: "Needs to follow HH:MM 24-hour format.",
-    }
+      isValid: (v) => /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(v),
+      message: "Needs to follow HH:MM 24-hour format.",
+    },
   ],
   ninthField: [
     {
@@ -71,10 +71,8 @@ const validation: Validations<FormValues> = {
 };
 
 const FormContent = ({ initialValues }: { initialValues?: FormValues }) => {
-  const { values, errors, handleChange, handleSubmit, handleReset } = useForm<FormValues>(
-    initialValues || defaultValues,
-    validation
-  );
+  const { values, errors, handleChange, handleSubmit, handleReset } =
+    useForm<FormValues>(initialValues || defaultValues, validation);
 
   const onSubmit = (values: FormValues) => {
     console.log(JSON.stringify(values));

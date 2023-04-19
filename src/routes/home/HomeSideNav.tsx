@@ -22,7 +22,7 @@ const navItems: readonly SideNavigationProps.Item[] = [
   },
 ];
 
-const Nav = () => {
+const HomeSideNav = () => {
   return (
     <Navigation
       items={navItems}
@@ -32,4 +32,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default HomeSideNav;
