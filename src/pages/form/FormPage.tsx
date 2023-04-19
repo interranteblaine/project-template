@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Form,
   SpaceBetween,
@@ -15,9 +15,11 @@ import {
   DatePicker,
   RadioGroup,
 } from "@cloudscape-design/components";
+import { useLayoutAPI } from "../../common/context/LayoutAPI";
 import TokenInput from "../../common/form/TokenInput";
 import ImageFileInput from "../../common/form/ImageFileInput";
 import useForm, { Validations } from "../../common/hooks/useForm";
+import FormSideNav from "./FormSideNav";
 
 type FormValues = {
   firstField: string;
@@ -70,7 +72,14 @@ const validation: Validations<FormValues> = {
   ],
 };
 
-const FormContent = ({ initialValues }: { initialValues?: FormValues }) => {
+const FormPage = ({ initialValues }: { initialValues?: FormValues }) => {
+  const {setContentType, setNavigation} = useLayoutAPI()
+
+  useEffect(() => {
+    setContentType("form")
+    setNavigation(<FormSideNav />)
+  }, [])
+
   const { values, errors, handleChange, handleSubmit, handleReset } =
     useForm<FormValues>(initialValues || defaultValues, validation);
 
@@ -204,4 +213,4 @@ const FormContent = ({ initialValues }: { initialValues?: FormValues }) => {
   );
 };
 
-export default FormContent;
+export default FormPage;

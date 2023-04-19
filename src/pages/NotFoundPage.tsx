@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Box } from "@cloudscape-design/components";
 import { useLayoutAPI } from "../common/context/LayoutAPI";
 
-const NotFoundError = () => {
+const NotFoundPage = () => {
   const {hideNavigation} = useLayoutAPI()
 
   useEffect(() => {
@@ -17,4 +17,4 @@ const NotFoundError = () => {
   );
 };
 
-export default NotFoundError;
+export default NotFoundPage;
