@@ -30,30 +30,30 @@ const useForm = <FormValues,>(
 
   const handleSubmit = (onSubmit: (values: FormValues) => void) => {
     return () => {
-      const hasErrors = validate()
+      const hasErrors = validate();
       if (hasErrors) return;
       onSubmit(values);
     };
   };
 
   const validate = () => {
-    if (!validations) return false
-    let hasErrors = false
+    if (!validations) return false;
+    let hasErrors = false;
     for (const key of Object.keys(validations)) {
       const value = values[key as keyof FormValues];
       const tests = validations[key as keyof FormValues];
       for (const test of tests) {
         if (test.isValid(value)) continue;
         setErrors((state) => ({ ...state, [key]: test.message }));
-        hasErrors = true
+        hasErrors = true;
       }
     }
-    return hasErrors
+    return hasErrors;
   };
 
   const handleReset = () => {
     setValues(initialValues);
-    setErrors({} as Errors<FormValues>)
+    setErrors({} as Errors<FormValues>);
   };
 
   return {

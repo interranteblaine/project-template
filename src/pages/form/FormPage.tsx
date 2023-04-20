@@ -73,12 +73,12 @@ const validation: Validations<FormValues> = {
 };
 
 const FormPage = ({ initialValues }: { initialValues?: FormValues }) => {
-  const {setContentType, setNavigation} = useLayoutAPI()
+  const { setContentType, setNavigation } = useLayoutAPI();
 
   useEffect(() => {
-    setContentType("form")
-    setNavigation(<FormSideNav />)
-  }, [])
+    setContentType("form");
+    setNavigation(<FormSideNav />);
+  }, []);
 
   const { values, errors, handleChange, handleSubmit, handleReset } =
     useForm<FormValues>(initialValues || defaultValues, validation);

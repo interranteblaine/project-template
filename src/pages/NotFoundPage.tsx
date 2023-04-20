@@ -3,17 +3,17 @@ import { Box } from "@cloudscape-design/components";
 import { useLayoutAPI } from "../common/context/LayoutAPI";
 
 const NotFoundPage = () => {
-  const {hideNavigation} = useLayoutAPI()
+  const { hideNavigation } = useLayoutAPI();
 
   useEffect(() => {
-    hideNavigation(true)
-  }, [])
-  
+    hideNavigation(true);
+  }, []);
+
   return (
-        <Box textAlign="center">
-          <Box variant="h1">Oops!</Box>
-          <Box variant="p">Sorry, an unexpected error has occurred.</Box>
-        </Box>
+    <Box textAlign="center">
+      <Box variant="h1">Oops!</Box>
+      <Box variant="p">Sorry, an unexpected error has occurred.</Box>
+    </Box>
   );
 };
 

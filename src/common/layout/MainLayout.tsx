@@ -6,7 +6,7 @@ import MainTopNav from "./MainTopNav";
 
 const MainLayout = () => {
   const appLayout = useRef(null);
-  const state = useLayout()
+  const state = useLayout();
 
   return (
     <>
