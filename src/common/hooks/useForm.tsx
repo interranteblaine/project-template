@@ -53,6 +53,7 @@ const useForm = <FormValues,>(
 
   const handleReset = () => {
     setValues(initialValues);
+    setErrors({} as Errors<FormValues>)
   };
 
   return {
